@@ -11,6 +11,7 @@ app.config.from_pyfile("config.py",
 # app.config.from_object("config")
 
 
+
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
     """Say hello"""
@@ -18,7 +19,8 @@ def main():
 
 @app.route('/homepage') 
 def home():
-    """View for the Home page of your website."""
+    agent = request
+    agent = request.user_agent
     return f"This is your homepage :) \n Your IP is {request.remote_addr} and you are using {request.user_agent}"
 
 @app.route("/hi/<string:name>") # URL rule must start with a slash.
